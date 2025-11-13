@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">BookTrack</string>
+    <string name="continuarLeyendo">Continuar Leyendo</string>
+    <string name="recomendaciones">Recomendaciones</string>
+    <string name="pendientes">pendientes</string>
+    <string name="favoritos">favoritos</string>
+    <string name="detalles">detalles</string>
+    <string name="buscador">buscador</string>
+    <string name="descubrir">descubrir</string>
+    <string name="marcarLeido">marcar leido</string>
+    <string name="añadirPendientes">añadir pendientes</string>
+    <string name="valorar">valorar</string>
 </resources>

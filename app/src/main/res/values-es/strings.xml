@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BookTrack</string>
+    <string name="continuarLeyendo">Continuar Leyendo</string>
+    <string name="recomendaciones">Recomendaciones</string>
+    <string name="pendientes">Pendientes</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="detalles">Detalles Libro</string>
+    <string name="buscador">Buscador</string>
+    <string name="descubrir">Descubrir</string>
+    <string name="marcarLeido">Marcar como leido</string>
+    <string name="añadirPendientes">Añadir a pendientes</string>
+    <string name="valorar">Valorar</string>
+</resources>
