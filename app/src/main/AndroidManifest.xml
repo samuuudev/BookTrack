@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookTrack">
         <activity
+            android:name=".DescubrirActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetallesLibro"
             android:exported="false" />
         <activity
