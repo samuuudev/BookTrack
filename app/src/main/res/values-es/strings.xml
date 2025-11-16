@@ -11,4 +11,9 @@
     <string name="marcarLeido">Marcar como leido</string>
     <string name="añadirPendientes">Añadir a pendientes</string>
     <string name="valorar">Valorar</string>
+    <string name="about_us_title">Sobre BookTrack</string>
+    <string name="app_logo_description">Logo de la aplicacion</string>
+    <string name="app_description_long">BookTrack es tu compañero ideal para llevar un registro de todos los libros que has leído, los que estás leyendo y los que quieres leer en el futuro. ¡Organiza tu biblioteca personal y descubre nuevas lecturas!</string>
+    <string name="developed_by">Desarrollado por</string>
+    <string name="copyright">© 2025 Samuel. Todos los derechos reservados.</string>
 </resources>
