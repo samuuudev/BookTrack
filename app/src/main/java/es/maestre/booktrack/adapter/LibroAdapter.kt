@@ -34,7 +34,7 @@ class LibroAdapter(mutableListOf: Unit) :
         return data.size
     }
 
-    fun updateData(newData: List<String>) {
+    fun updateData(newData: List<Libro>) {
         this.data = newData
         notifyItemChanged(0, data.size - 1)
         notifyDataSetChanged()
