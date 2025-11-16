@@ -1,49 +1,37 @@
 package es.maestre.booktrack
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import es.maestre.booktrack.databinding.ActivityMapBinding
 
 class MapActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMapBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
-        binding = ActivityMapBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // 1. Intenta abrir una app de mapas genérica con la búsqueda.
+        val gmmIntentUri = Uri.parse("geo:0,0?q=librerías")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
 
-        navigateToActivity()
+        // Comprueba si hay ALGUNA app que pueda manejar la petición de mapa.
+        if (mapIntent.resolveActivity(packageManager) != null) {
+            startActivity(mapIntent)
+        } else {
+            // 2. Si no hay app de mapas, abre la búsqueda en el navegador web como plan B.
+            val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=librerías")
+            val webIntent = Intent(Intent.ACTION_VIEW, webUri)
+            
+            // Comprueba si hay un navegador (casi siempre lo habrá).
+            if (webIntent.resolveActivity(packageManager) != null) {
+                 startActivity(webIntent)
+            } else {
+                // 3. Caso extremo: no hay ni app de mapas ni navegador.
+                Toast.makeText(this, "No se encontró una aplicación para abrir mapas.", Toast.LENGTH_LONG).show()
+            }
+        }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-    }
-
-    private fun navigateToActivity() {
-        binding.iconHome.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-        binding.iconBooks.setOnClickListener {
-            val intent = Intent(this, DescubrirActivity::class.java)
-            startActivity(intent)
-        }
-        binding.iconMap.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent)
-        }
-        binding.iconSearch.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
-        }
+        // 4. Cierra esta Activity inmediatamente para no dejar una pantalla en blanco.
+        finish()
     }
 }

@@ -7,26 +7,32 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "libro")
 data class Libro(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id_libro")
-    val idLibro :Long = 0,
+    val id: Long = 0,
+
     @ColumnInfo(name = "titulo")
-    var titulo:String,
+    var titulo: String,
+
     @ColumnInfo(name = "autor")
-    var autor:String,
+    var autor: String,
+
     @ColumnInfo(name = "descripcion")
-    var descripcion:String,
+    var descripcion: String,
+
     @ColumnInfo(name = "genero")
-    var genero:String,
+    var genero: String,
+
     @ColumnInfo(name = "imagen")
     var imagen: ByteArray?
 ) {
+
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
         other as Libro
 
-        if (idLibro != other.idLibro) return false
+        if (id != other.id) return false
         if (titulo != other.titulo) return false
         if (autor != other.autor) return false
         if (descripcion != other.descripcion) return false
@@ -40,7 +46,7 @@ data class Libro(
     }
 
     override fun hashCode(): Int {
-        var result = idLibro.hashCode()
+        var result = id.hashCode()
         result = 31 * result + titulo.hashCode()
         result = 31 * result + autor.hashCode()
         result = 31 * result + descripcion.hashCode()
